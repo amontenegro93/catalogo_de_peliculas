@@ -1,16 +1,29 @@
-# This is a sample Python script.
+from Pelicula import Pelicula
+from CatalogoPeliculas import CatalogoPeliculas
 
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+opcion= None
+while opcion !=4:
+    try:
+        print('Opciones: ')
+        print('1. Agregar pelicula')
+        print('2. Listar peliculas: ')
+        print('3. Eliminar catalogo')
+        print('4: Salir')
+        opcion=int(input('escribe tu opcion (1-4)'))
+
+        if opcion ==1:
+            nombrePelicula= input('ingresa el nombre')
+            pelicula= Pelicula(nombrePelicula)
+            CatalogoPeliculas.agregarPelicula(pelicula)
+        elif opcion ==2:
+            CatalogoPeliculas.listarPeliculas()
+        elif opcion==3:
+            CatalogoPeliculas.eliminarPeliculas()
+
+    except Exception as e:
+        print(f'error: {e}')
+        opcion=None
+else:
+    print('hasta luego')
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
